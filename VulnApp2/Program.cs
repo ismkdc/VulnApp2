@@ -31,7 +31,7 @@ app.MapGet("/login/{username}", (string username) =>
 {
     username = username.ToLower().Trim();
     
-    if (username == "admin")
+    if (username.Contains("admin"))
         return Results.Unauthorized();
 
     var user = context.Users.FirstOrDefault(u => u.Username == username);
